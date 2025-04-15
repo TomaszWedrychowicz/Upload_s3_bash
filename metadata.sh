@@ -14,8 +14,11 @@ OS=$(cat /etc/os-release | grep "^NAME=" | cut -d "=" -f2 | tr -d '"')
 
 OSV=$(cat /etc/os-release | grep "^VERSION_ID=" | cut -d "=" -f2 | tr -d '"')
 
+USERS=$(cat /etc/passwd | grep -E "/bin/bash|/bin/sh" | cut -d : -f1 | tr '\n' ' ')
+
 echo """Instance ID: $INSTANCEID
 Public IP: $PUBLICIP
 Private IP: $PRIVATEIP 
 Security Groups: $SG
-Operating System: $OS $OSV""" > metadata.txt
+Operating System: $OS $OSV
+Users: $USERS""" > metadata.txt
