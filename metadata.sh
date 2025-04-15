@@ -22,3 +22,5 @@ Private IP: $PRIVATEIP
 Security Groups: $SG
 Operating System: $OS $OSV
 Users: $USERS""" > metadata.txt
+
+aws s3 cp metadata.txt s3://applicant-task/r5d4/
